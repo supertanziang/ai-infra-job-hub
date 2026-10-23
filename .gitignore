@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+*.log
+*.tar.gz
+*backup*.json
+*records*.json
+*resume*
+*简历*
