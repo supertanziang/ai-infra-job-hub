@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f0">
+  <meta name="description" content="按 2027 届 AI Infra 简历匹配的官网岗位、公司雷达和投递进度。">
+  <title>AI Infra 投递台 · 2027 校招</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="返回顶部">
+        <span class="brand-mark">A<span>·</span>I</span>
+        <span class="brand-name">INFRA <small>投递台</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span id="checkedAtHeader">正在载入岗位数据</span>
+        <button class="icon-button" id="reloadBtn" type="button" aria-label="刷新岗位数据" title="刷新岗位数据">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M5.8 9A7 7 0 0 1 18 7l2 5M4 12l2 5a7 7 0 0 0 12.2-2"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> 2027 校招 · AI INFRA</div>
+          <h1 id="heroTitle">把合适的岗位，<br><em>放在最前面。</em></h1>
+          <p>基于你的推理加速、投机解码、KV Cache、RL Infra 和多模态经历筛选。按城市偏好排列，再看简历匹配度。</p>
+          <div class="hero-actions">
+            <button class="primary-button" type="button" data-go="jobs">浏览岗位与公司 <span aria-hidden="true">↗</span></button>
+            <button class="ghost-button" type="button" data-go="progress">查看投递进度 <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+        <div class="hero-side" aria-label="投递台概览">
+          <div class="hero-side-head"><span>YOUR SEARCH SPACE</span><span class="spark">✦</span></div>
+          <div class="hero-stat"><strong id="jobCount">—</strong><span>已核验岗位与入口</span></div>
+          <div class="hero-rule"></div>
+          <div class="hero-mini"><span>优先工作地</span><strong>上海</strong></div>
+          <div class="hero-mini"><span>毕业时间</span><strong>2027.06</strong></div>
+          <div class="hero-mini"><span>首要方向</span><strong>推理系统</strong></div>
+        </div>
+      </section>
+
+      <section class="overview" aria-label="投递概览">
+        <div class="overview-item"><span class="overview-icon mint">◎</span><div><strong id="directCount">—</strong><span>直达职位</span></div></div>
+        <div class="overview-item"><span class="overview-icon peach">↗</span><div><strong id="companyCount">—</strong><span>关注单位</span></div></div>
+        <div class="overview-item"><span class="overview-icon lavender">▤</span><div><strong id="appliedCount">0</strong><span>已投递公司</span></div></div>
+        <div class="overview-item"><span class="overview-icon blue">◷</span><div><strong id="unappliedCount">—</strong><span>未投递公司</span></div></div>
+      </section>
+
+      <div class="workspace-heading">
+        <div><span class="section-kicker">WORKSPACE</span><h2>你的求职工作台</h2></div>
+        <p>匹配分是人工估计的筛选顺序，不代表录用概率。申请与流程状态以招聘官网为准。</p>
+      </div>
+
+      <nav class="tabs" aria-label="页面栏目">
+        <button class="tab active" type="button" data-tab="jobs" aria-selected="true">岗位与公司 <span id="tabJobCount">—</span></button>
+        <button class="tab" type="button" data-tab="radar" aria-selected="false">公司雷达 <span id="tabRadarCount">—</span></button>
+        <button class="tab" type="button" data-tab="progress" aria-selected="false">投递进度 <span id="tabProgressCount">0</span></button>
+        <button class="tab" type="button" data-tab="profile" aria-selected="false">个人资料</button>
+      </nav>
+
+      <section id="jobsPanel" class="panel" aria-labelledby="jobsTitle">
+        <div class="toolbar">
+          <div class="toolbar-title"><h3 id="jobsTitle">岗位与公司</h3><p>每家公司显示一次，展开查看岗位。官方招聘入口也可记录进度，每页 20 家。</p></div>
+          <label class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="searchInput" type="search" placeholder="搜索公司、岗位、技能" autocomplete="off" aria-label="搜索岗位"></label>
+        </div>
+        <div class="filters" aria-label="岗位筛选">
+          <button class="city-toggle" id="cityToggle" type="button" aria-expanded="false" aria-controls="cityFilters"><span id="cityToggleLabel">筛选城市</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+          <div class="filter-group" id="modeFilters">
+            <button class="chip active" type="button" data-mode="all">全部类型</button>
+            <button class="chip" type="button" data-mode="direct">职位直达</button>
+            <button class="chip" type="button" data-mode="portal">招聘入口</button>
+          </div>
+          <div class="filter-divider"></div>
+          <div class="filter-group" id="applyFilters">
+            <button class="chip active" type="button" data-apply="all">全部进度</button>
+            <button class="chip" type="button" data-apply="unapplied">未投递</button>
+            <button class="chip" type="button" data-apply="applied">已投递</button>
+          </div>
+          <label class="sort-label">排序 <select id="sortSelect" aria-label="岗位排序"><option value="city">城市优先</option><option value="match">匹配度优先</option><option value="tier">大厂优先</option><option value="new">发布较新</option></select></label>
+          <div class="filter-group" id="cityFilters" role="group" aria-label="工作城市" hidden>
+            <button class="chip active" type="button" data-city="all" aria-pressed="true">全部城市</button>
+            <button class="chip" type="button" data-city="上海" aria-pressed="false">上海</button>
+            <button class="chip" type="button" data-city="北京" aria-pressed="false">北京</button>
+            <button class="chip" type="button" data-city="杭州" aria-pressed="false">杭州</button>
+            <button class="chip" type="button" data-city="深圳" aria-pressed="false">深圳</button>
+            <button class="chip" type="button" data-city="苏州" aria-pressed="false">苏州</button>
+            <button class="chip" type="button" data-city="武汉" aria-pressed="false">武汉</button>
+            <button class="chip" type="button" data-city="西安" aria-pressed="false">西安</button>
+          </div>
+        </div>
+        <nav class="pagination" data-pagination="jobs" aria-label="匹配岗位顶部分页"></nav>
+        <div id="jobList" class="job-grid" aria-live="polite"></div>
+        <div id="emptyJobs" class="empty-state" hidden>没有符合筛选条件的岗位。试试调整城市或关键词。</div>
+        <nav class="pagination pagination-bottom" data-pagination="jobs" aria-label="匹配岗位底部分页"></nav>
+      </section>
+
+      <section id="radarPanel" class="panel" aria-labelledby="radarTitle" hidden>
+        <div class="toolbar"><div class="toolbar-title"><h3 id="radarTitle">公司与研究院所</h3><p>寻找适合你的企业与科研机构，进入官方招聘页面了解机会。</p></div><label class="search-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="radarSearch" type="search" placeholder="搜索公司、院所或方向" aria-label="搜索公司"></label></div>
+        <div class="radar-tip"><span>✦</span> 公司雷达用于拓展搜索范围；只有上方标为“职位直达”的卡片才已经定位到具体职位。</div>
+        <div class="radar-filters" id="radarFilters" aria-label="公司分类筛选">
+          <button class="city-toggle" id="radarCityToggle" type="button" aria-expanded="false" aria-controls="radarCityFilters"><span id="radarCityLabel">筛选地区</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+          <button class="chip active" type="button" data-category="all" aria-pressed="true">全部单位</button>
+          <button class="chip" type="button" data-category="研究院所" aria-pressed="false">研究院所</button>
+          <button class="chip" type="button" data-category="央国企" aria-pressed="false">央国企</button>
+          <button class="chip" type="button" data-category="startup" aria-pressed="false">创业 / 成长</button>
+          <button class="chip" type="button" data-category="foreign" aria-pressed="false">外企</button>
+          <button class="chip" type="button" data-category="互联网与AI" aria-pressed="false">互联网与 AI</button>
+          <button class="chip" type="button" data-category="车企与智驾" aria-pressed="false">车企与智驾</button>
+          <button class="chip" type="button" data-category="芯片与算力" aria-pressed="false">芯片与算力</button>
+          <button class="chip" type="button" data-category="工业与安防" aria-pressed="false">工业 / 安防 / 机器人</button>
+          <div class="filter-group" id="radarCityFilters" role="group" aria-label="单位地区" hidden>
+            <button class="chip active" type="button" data-radar-city="all" aria-pressed="true">全部地区</button>
+            <button class="chip" type="button" data-radar-city="上海" aria-pressed="false">上海</button>
+            <button class="chip" type="button" data-radar-city="北京" aria-pressed="false">北京</button>
+            <button class="chip" type="button" data-radar-city="杭州" aria-pressed="false">杭州</button>
+            <button class="chip" type="button" data-radar-city="深圳" aria-pressed="false">深圳</button>
+            <button class="chip" type="button" data-radar-city="苏州" aria-pressed="false">苏州</button>
+            <button class="chip" type="button" data-radar-city="武汉" aria-pressed="false">武汉</button>
+            <button class="chip" type="button" data-radar-city="西安" aria-pressed="false">西安</button>
+          </div>
+        </div>
+        <nav class="pagination" data-pagination="radar" aria-label="公司雷达顶部分页"></nav>
+        <div id="radarList" class="radar-grid" aria-live="polite"></div>
+        <nav class="pagination pagination-bottom" data-pagination="radar" aria-label="公司雷达底部分页"></nav>
+      </section>
+
+      <section id="progressPanel" class="panel" aria-labelledby="progressTitle" hidden>
+        <div class="toolbar"><div class="toolbar-title"><h3 id="progressTitle">我的投递进度</h3><p>从投递到 Offer，把每一次进展留下来。</p></div><div class="progress-actions"><button id="addRecordBtn" class="primary-button small" type="button">＋ 新增记录</button><button id="exportBtn" class="outline-button" type="button">导出备份</button><label class="outline-button file-button">导入备份<input id="importInput" type="file" accept="application/json,.json" hidden></label></div></div>
+        <div class="privacy-note"><span class="privacy-icon">⌁</span><span>记录保存在当前浏览器，更新后立即可见。招聘官网的流程需登录原站核对后记录；换设备可导出并导入备份。</span></div>
+        <div class="progress-metrics"><div><strong id="progressRecorded">0</strong><span>已记录公司</span></div><div><strong id="progressApplied">0</strong><span>累计投递公司</span></div><div><strong id="progressUnapplied">0</strong><span>当前待投递公司</span></div><div class="followup-metric"><strong id="progressFollowup">0</strong><span>今天 / 逾期待办公司</span></div></div>
+        <div class="stage-overview-head"><h4>当前阶段</h4><span>按公司汇总 · 点击阶段筛选</span></div>
+        <div id="progressStages" class="progress-stage-overview" aria-label="按公司当前阶段筛选"></div>
+        <p class="progress-stage-hint">多岗位取仍在推进的最高阶段；全部结束后归为“已结束”。每个岗位独立记录。</p>
+        <div class="progress-filterbar"><div class="radar-filters" aria-label="进度筛选"><button class="chip active" type="button" data-progress-filter="all" aria-pressed="true">全部记录</button><button class="chip" type="button" data-progress-filter="followup" aria-pressed="false">今天 / 逾期</button><button class="chip" type="button" data-progress-filter="applied" aria-pressed="false">曾投递</button></div><label class="search-box progress-search"><span aria-hidden="true">⌕</span><input id="progressSearch" type="search" placeholder="搜索公司、岗位或进展" aria-label="搜索投递记录"></label></div>
+        <nav class="pagination" data-pagination="progress" aria-label="投递进度顶部分页"></nav>
+        <div id="progressList" class="progress-list" aria-live="polite"></div>
+        <div id="emptyProgress" class="empty-state" hidden><span class="empty-illustration">↗</span><strong>还没有符合条件的记录</strong><p>浏览岗位时记录进度，或添加已有投递；这里会显示公司阶段和跟进时间线。</p><button class="primary-button small" type="button" data-go="jobs">去看岗位</button></div>
+        <nav class="pagination pagination-bottom" data-pagination="progress" aria-label="投递进度底部分页"></nav>
+      </section>
+
+      <section id="profilePanel" class="panel" aria-labelledby="profileTitle" hidden>
+        <div class="toolbar"><div class="toolbar-title"><h3 id="profileTitle">个人资料保险箱</h3><p>把常用申请资料和简历文件保存在此设备，投递时可随时查看。</p></div></div>
+        <div class="privacy-note"><span class="privacy-icon">⌁</span><span>资料在此设备用你设置的密码加密，密码不会保存或发送。招聘网站账号与密码仍由各招聘官网管理；本站无法替你跨站登录或自动填表。</span></div>
+        <div id="profileLocked" class="profile-box"><div class="section-kicker">PRIVATE VAULT</div><h4 id="profileLockTitle">解锁个人资料</h4><p id="profileLockHint">输入密码后查看本机保存的资料。</p><label>保险箱密码<input id="profilePassword" type="password" autocomplete="off" minlength="10" placeholder="首次使用请设置至少 10 位密码"></label><div class="profile-actions"><button id="unlockProfileBtn" class="primary-button small" type="button">解锁资料</button><label class="outline-button file-button">导入加密备份<input id="importVaultInput" type="file" accept="application/json,.json" hidden></label></div></div>
+        <div id="profileUnlocked" class="profile-box" hidden><div class="profile-head"><div><div class="section-kicker">PRIVATE VAULT</div><h4>我的申请资料</h4></div><button id="lockProfileBtn" class="outline-button" type="button">锁定</button></div><div class="profile-fields"><label>姓名<input id="profileName" type="text" autocomplete="name" placeholder="你的姓名"></label><label>手机号<input id="profilePhone" type="tel" autocomplete="tel" placeholder="常用联系电话"></label><label>邮箱<input id="profileEmail" type="email" autocomplete="email" placeholder="常用邮箱"></label><label>学校 / 学位<input id="profileSchool" type="text" placeholder="例如：某大学 · 硕士"></label><label>毕业年月<input id="profileGraduation" type="month" value="2027-06"></label><label>意向城市<input id="profileCity" type="text" placeholder="例如：上海、北京"></label></div><label class="profile-file-label">简历文件（PDF / DOC / DOCX，最大 8 MB）<input id="profileResumeInput" type="file" accept=".pdf,.doc,.docx,application/pdf"></label><p id="profileResumeInfo" class="profile-file-info">尚未保存简历文件</p><div class="profile-actions"><button id="saveProfileBtn" class="primary-button small" type="button">加密保存</button><button id="downloadResumeBtn" class="outline-button" type="button" hidden>下载简历</button><button id="exportVaultBtn" class="outline-button" type="button">导出加密备份</button></div><p class="profile-note">保险箱只在这个浏览器内保存。换设备时先导出加密备份，再在新设备导入；请记住密码，丢失后无法解密。</p></div>
+      </section>
+
+      <footer class="footer"><span>AI INFRA / APPLICATION DESK</span><span>岗位核验 <time id="footerCheckedAt">—</time> · 招聘信息可能随时变化</span></footer>
+    </main>
+  </div>
+
+  <dialog id="recordDialog" class="record-dialog" aria-labelledby="recordTitle">
+    <form id="recordForm">
+      <div class="dialog-head"><div><span class="section-kicker">APPLICATION TIMELINE</span><h2 id="recordTitle">更新一次进展</h2><p id="recordJobTitle"></p></div><button class="dialog-close" type="button" id="closeDialog" aria-label="关闭">×</button></div>
+      <p class="record-form-hint">每次保存都会新增一条时间线，之前的记录会保留。</p>
+      <div class="record-field-grid"><label>当前阶段<select id="recordStatus"><option value="未开始">未开始</option><option value="已查看">已查看</option><option value="已投递">已投递</option><option value="笔试">笔试</option><option value="面试">面试</option><option value="Offer">Offer</option><option value="已结束">已结束</option></select></label><label>进展发生时间 <span>本机时区</span><input id="recordOccurredAt" type="datetime-local" step="1" required></label></div>
+      <label>面试轮次 / 事项 <span>可选</span><input id="recordEventTitle" type="text" maxlength="120" placeholder="例如：一面完成、收到笔试通知"></label>
+      <label>这次进展的备注 <span>可选</span><textarea id="recordNote" rows="3" maxlength="500" placeholder="例如：一面完成，约定下周沟通二面时间"></textarea></label>
+      <div class="record-next-fields"><span class="record-field-heading">下一步安排</span><div class="record-field-grid"><label>跟进日期 <span>可选</span><input id="recordNextDate" type="date"></label><label>跟进事项 <span>可选</span><input id="recordNextAction" type="text" maxlength="120" placeholder="例如：联系 HR 确认二面"></label></div></div>
+      <details class="dialog-history"><summary>已有进展 <span id="recordHistoryCount">0</span> 条</summary><div id="recordHistory"></div></details>
+      <div class="dialog-actions"><button class="outline-button danger-button" type="button" id="removeRecordBtn" hidden>移除记录</button><button class="outline-button" type="button" id="cancelDialog">取消</button><button class="primary-button small" type="submit">保存进展</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="customDialog" class="record-dialog" aria-labelledby="customTitle">
+    <form id="customForm">
+      <div class="dialog-head"><div><span class="section-kicker">MANUAL ENTRY</span><h2 id="customTitle">新增投递记录</h2><p>记录你在其他招聘网站发现的岗位</p></div><button class="dialog-close" type="button" id="closeCustomDialog" aria-label="关闭">×</button></div>
+      <div class="record-field-grid"><label>公司名称<input id="customCompany" type="text" required maxlength="80" placeholder="例如：中国移动"></label><label>工作城市 <span>可选</span><input id="customCity" type="text" maxlength="80" placeholder="例如：上海"></label></div>
+      <label>职位名称<input id="customJobTitle" type="text" required maxlength="120" placeholder="例如：大模型推理工程师"></label>
+      <label>招聘官网职位链接 <span>可选</span><input id="customUrl" type="url" placeholder="https://..."></label>
+      <div class="record-field-grid"><label>当前阶段<select id="customStatus"><option value="未开始">未开始</option><option value="已查看">已查看</option><option value="已投递" selected>已投递</option><option value="笔试">笔试</option><option value="面试">面试</option><option value="Offer">Offer</option><option value="已结束">已结束</option></select></label><label>进展发生时间 <span>本机时区</span><input id="customOccurredAt" type="datetime-local" step="1" required></label></div>
+      <label>面试轮次 / 事项 <span>可选</span><input id="customEventTitle" type="text" maxlength="120" placeholder="例如：完成网申"></label>
+      <label>备注 <span>可选</span><textarea id="customNote" maxlength="500" placeholder="记录这次进展"></textarea></label>
+      <div class="record-next-fields"><span class="record-field-heading">下一步安排</span><div class="record-field-grid"><label>跟进日期 <span>可选</span><input id="customNextDate" type="date"></label><label>跟进事项 <span>可选</span><input id="customNextAction" type="text" maxlength="120" placeholder="例如：查看笔试通知"></label></div></div>
+      <div class="dialog-actions"><button class="outline-button" type="button" id="cancelCustomDialog">取消</button><button class="primary-button small" type="submit">保存记录</button></div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
