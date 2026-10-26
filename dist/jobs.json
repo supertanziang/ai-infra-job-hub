@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-23T23:36:25+08:00",
+  "checkedAt": "2026-10-26T09:03:17+08:00",
   "summary": "2027 届校招优先；按简历中的推理加速、投机解码、KV Cache、RL Infra、多模态与上海意向人工评估。职位是否仍可申请以打开后的招聘官网为准。",
   "jobs": [
     {
@@ -44,6 +44,119 @@
       ],
       "reason": "岗位覆盖大模型训练与推理基础设施、MoE 优化和多模态；工作地上海。",
       "evidence": "官网 2027 届 AI Infra 职位详情。"
+    },
+    {
+      "id": "bytedance-commercial-train-infer-7669645528939153717",
+      "company": "字节跳动",
+      "tier": "大厂",
+      "title": "大模型训练推理工程师 · Commercial AI",
+      "city": "北京 / 上海",
+      "type": "2027 校招",
+      "mode": "direct",
+      "score": 97,
+      "postedAt": "",
+      "url": "https://jobs.bytedance.com/campus/m/position/detail/7669645528939153717?recomId=0cb57b50-904a-11f1-a8bc-525400e9beee&sourceJobId=7621894037364836613",
+      "statusUrl": "https://jobs.bytedance.com/campus/position",
+      "tags": [
+        "大模型训推",
+        "推理优化",
+        "流量调度",
+        "池化部署",
+        "上海"
+      ],
+      "reason": "覆盖大模型训练与推理、性能优化、流量调度和池化部署，且上海可选，与推理系统和模型网关经历高度匹配。",
+      "evidence": "字节跳动校园招聘官网职位页，2026-10-25 核验：2027 届正式岗位，职位 ID A102330A，工作地北京、上海。",
+      "sourceCheckedAt": "2026-10-25"
+    },
+    {
+      "id": "bytedance-aiinfra-7667126080873433397",
+      "company": "字节跳动",
+      "tier": "大厂",
+      "title": "AI Infra 工程师 · 中国交易与广告",
+      "city": "北京 / 上海",
+      "type": "2027 校招",
+      "mode": "direct",
+      "score": 96,
+      "postedAt": "",
+      "url": "https://jobs.bytedance.com/campus/m/position/detail/7667126080873433397?recomId=8a2666ed-93eb-11f1-9629-26805d13ecb7&sourceJobId=7629679699232655621&spread=B3RU5SF",
+      "statusUrl": "https://jobs.bytedance.com/campus/position",
+      "tags": [
+        "AI Infra",
+        "训练与推理",
+        "异构算力",
+        "上海"
+      ],
+      "reason": "职位名称与业务方向直接对应 AI Infra，上海可选；适合突出训推系统、异构算力适配与工程优化经历。",
+      "evidence": "字节跳动校园招聘官网职位页，2026-10-25 核验：2027 届正式岗位，职位 ID A250060，工作地北京、上海。",
+      "sourceCheckedAt": "2026-10-25"
+    },
+    {
+      "id": "bytedance-ark-inference-7669717661270608181",
+      "company": "字节跳动",
+      "tier": "大厂",
+      "title": "大模型推理系统工程师 · 火山方舟",
+      "city": "杭州 / 北京 / 上海",
+      "type": "2027 校招",
+      "mode": "direct",
+      "score": 95,
+      "postedAt": "",
+      "url": "https://jobs.bytedance.com/campus/m/position/detail/7669717661270608181?recomId=0cb57b46-904a-11f1-a8bc-525400e9beee&sourceJobId=7621894037364836613",
+      "statusUrl": "https://jobs.bytedance.com/campus/position",
+      "tags": [
+        "推理系统",
+        "模型服务",
+        "火山方舟",
+        "上海"
+      ],
+      "reason": "大模型推理系统与模型服务方向直接匹配现有推理加速、KV Cache 和部署经验，且上海可选。",
+      "evidence": "字节跳动校园招聘官网职位页，2026-10-25 核验：2027 届正式岗位，职位 ID A78196A，工作地杭州、北京、上海。",
+      "sourceCheckedAt": "2026-10-25"
+    },
+    {
+      "id": "bytedance-ml-scheduling-7669716946866538805",
+      "company": "字节跳动",
+      "tier": "大厂",
+      "title": "机器学习系统调度编排工程师 · Data AML",
+      "city": "杭州 / 北京 / 上海",
+      "type": "2027 校招",
+      "mode": "direct",
+      "score": 98,
+      "postedAt": "",
+      "url": "https://jobs.bytedance.com/campus/m/position/detail/7669716946866538805?recomId=a24c68b4-9061-11f1-b75f-da9c7bffbfa2&sourceJobId=7626644687092992309&spread=B3RU5SF",
+      "statusUrl": "https://jobs.bytedance.com/campus/position",
+      "tags": [
+        "KV Cache",
+        "推理调度",
+        "QoS / SLA",
+        "弹性资源",
+        "上海"
+      ],
+      "reason": "职责直接覆盖 KV Cache 亲和调度、推理流量调度、模型权重与缓存分发、池化多租户及弹性资源，且上海可选。",
+      "evidence": "字节跳动校园招聘官网职位页，2026-10-26 核验：面向 2027 届本科及以上毕业生，工作地杭州、北京、上海。",
+      "sourceCheckedAt": "2026-10-26"
+    },
+    {
+      "id": "bytedance-train-infer-storage-7665707813859543301",
+      "company": "字节跳动",
+      "tier": "大厂",
+      "title": "训练推理一体化存储研发工程师 · Data",
+      "city": "北京 / 上海",
+      "type": "2027 校招",
+      "mode": "direct",
+      "score": 96,
+      "postedAt": "",
+      "url": "https://jobs.bytedance.com/campus/m/position/detail/7665707813859543301?recomId=13679f94-cbe1-11f1-9198-b8cef6a0472a&sourceJobId=7639700601715394869&spread=RJ8N7KY",
+      "statusUrl": "https://jobs.bytedance.com/campus/position",
+      "tags": [
+        "训推一体",
+        "KV Cache",
+        "多级缓存",
+        "流量调度",
+        "上海"
+      ],
+      "reason": "岗位聚焦训练推理一体化存储，明确涉及推理框架、KV Cache 命中率、流量调度与多级缓存，且上海可选。",
+      "evidence": "字节跳动校园招聘官网职位页，2026-10-26 核验：面向 2027 届本科及以上毕业生，工作地北京、上海。",
+      "sourceCheckedAt": "2026-10-26"
     },
     {
       "id": "ali-aiinfra-199907640056",
@@ -333,6 +446,50 @@
       ],
       "reason": "端侧推理与模型部署经验相关；具体工作城市需要在官网核对。",
       "evidence": "小米 2027 届官网职位页。"
+    },
+    {
+      "id": "bilibili-aiinfra-29914",
+      "company": "哔哩哔哩",
+      "tier": "中厂",
+      "title": "大模型 Infra 工程师【2027届】",
+      "city": "上海",
+      "type": "2027 校招",
+      "mode": "direct",
+      "score": 92,
+      "postedAt": "2026-08-11",
+      "url": "https://jobs.bilibili.com/campus/positions/29914",
+      "statusUrl": "https://jobs.bilibili.com/campus/positions?type=3",
+      "tags": [
+        "GPU 调度",
+        "分布式训练",
+        "模型 Serving",
+        "vLLM",
+        "上海"
+      ],
+      "reason": "上海全职校招，覆盖数据、训练、推理、评测平台及模型 Serving，和推理部署与 Infra 经历高度匹配。",
+      "evidence": "哔哩哔哩招聘官网职位页，2026-10-24 核验仍可访问；标注 2027 届、上海、全职，发布于 2026-08-11。"
+    },
+    {
+      "id": "bilibili-bup-aiinfra-28876",
+      "company": "哔哩哔哩",
+      "tier": "中厂",
+      "title": "【B-UP】AI Infra 模型研发工程师（校招）",
+      "city": "上海",
+      "type": "2027 校招",
+      "mode": "direct",
+      "score": 94,
+      "postedAt": "2026-07-29",
+      "url": "https://jobs.bilibili.com/campus/positions/28876",
+      "statusUrl": "https://jobs.bilibili.com/campus/positions?type=3",
+      "tags": [
+        "Training Infra",
+        "vLLM",
+        "TensorRT-LLM",
+        "SGLang",
+        "推理优化"
+      ],
+      "reason": "上海校招，兼顾分布式训练底座与主流大模型推理框架优化，和现有训推系统经历高度匹配。",
+      "evidence": "哔哩哔哩招聘官网职位页，2026-10-24 核验仍可访问；标注校招、上海、全职，面向 2027 届。"
     },
     {
       "id": "bilibili-llm-intern-29836",
